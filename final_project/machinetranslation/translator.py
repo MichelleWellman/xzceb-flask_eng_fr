@@ -1,4 +1,4 @@
-# import json
+'''Operating system functionality to read the .env file'''
 import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
@@ -22,6 +22,7 @@ language_translator.set_service_url(
 
 # Function to translate English to French
 def english_to_french(english_text):
+    ''' Translate the english text input to french'''
     french_text = language_translator.translate(
         text=english_text,
         model_id='en-fr'
@@ -30,9 +31,9 @@ def english_to_french(english_text):
 
 # Function to translate French to English
 def french_to_english(french_text):
+    ''' Translate the french text input to english'''
     english_text = language_translator.translate(
         text=french_text,
         model_id='fr-en'
     ).get_result()
     return english_text
-
