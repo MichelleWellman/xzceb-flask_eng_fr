@@ -13,6 +13,14 @@ class TestTranslationFunctions(unittest.TestCase):
             english_to_french('Goodbye')['translations'][0]['translation'],
             'Au revoir'
         )
+        self.assertNotEqual(
+            english_to_french('Hello')['translations'][0]['translation'],
+            'Hello'
+        )
+        self.assertNotEqual(
+            english_to_french('Hello')['translations'][0]['translation'],
+            'Au revoir'
+        )
     
     # Test the French to English Function
     def test_french_to_english(self):
@@ -22,6 +30,14 @@ class TestTranslationFunctions(unittest.TestCase):
         )
         self.assertEqual(
             french_to_english('Au revoir')['translations'][0]['translation'],
+            'Goodbye'
+        )
+        self.assertNotEqual(
+            french_to_english('Bonjour')['translations'][0]['translation'],
+            'Bonjour'
+        )
+        self.assertNotEqual(
+            french_to_english('Bonjour')['translations'][0]['translation'],
             'Goodbye'
         )
 
